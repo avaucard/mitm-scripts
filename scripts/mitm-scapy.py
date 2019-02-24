@@ -12,18 +12,20 @@ except ImportError:
     sys.exit(1)
 
 
-
-
-#Ask the pirate for the network and victim's informations
-try:
-    interface = input("[*] Enter Desired Interface: ")
-    victimIP = input("[*] Enter Victim IP: ")
-    routerIP = input("[*] Enter Router IP: ")
-
 except KeyboardInterrupt:
     print("\n[*] User Requested Shutdown")
     print("\n[*] Exiting...")
     sys.exit(1)
+
+#Retrieve passed arguments
+if len(sys.argv) != 4:
+    print("Usage : python3 mitm-scapy.py <interface> <victimIP> <routerIP>")
+    print("\n[*] Exiting...")
+    sys.exit(1)
+else :
+    interface = str(sys.argv[1])
+    victimIP = str(sys.argv[2])
+    routerIP = str(sys.argv[3])
 
 
 #Activate IP Forwarding
